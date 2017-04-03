@@ -23,8 +23,11 @@ function renderData(data) {
     if (data.items) {
         data.items.forEach(function (i) {
             ytImg = i.snippet.thumbnails.default.url;
+            ytURL = i.id.videoId
             dataResultElem += '<p>' + i.snippet.title + '</p>' +
-                '<img src=' + ytImg + '>' + '</img>';
+                '<a href =https://www.youtube.com/watch?v=' + ytURL + '>' +
+                '<img src=' + ytImg + '>' + '</img>' +
+                '</a>';
         })
     }
     else {
@@ -39,5 +42,15 @@ function renderData(data) {
 
 //event listener for api
 
+function listenForSearch() {
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        var input = $('.js-query').val()
+        getYoutubeData(input, renderData);
+    })
+}
+
 
 //callback on load for event listener
+
+$(function () { listenForSearch() });
