@@ -11,6 +11,7 @@ function getYoutubeData(searchTerm, callback) {
         q: 'searchTerm'
 
     }
+    $.getJSON(YT_BASE_URL, params, callback);
 }
 
 //render api data function
@@ -20,12 +21,17 @@ var dataResultElem = '';
 function renderData(data) {
     if (data.Search) {
         data.Search.forEach(function (i) {
-
+            dataResultElem += '<p>' + i.Title + '</p>';
         })
     }
-
-
+    else {
+        dataResultElem += '<p>No Results</p>';
+    }
+    $('.search-results').html(dataResultElem);
 }
+
+
+
 
 
 //event listener for api
