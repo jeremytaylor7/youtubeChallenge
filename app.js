@@ -22,7 +22,9 @@ var dataResultElem = '';
 function renderData(data) {
     if (data.items) {
         data.items.forEach(function (i) {
-            dataResultElem += '<p>' + i.snippet.title + '</p>';
+            ytImg = i.snippet.thumbnails.default.url;
+            dataResultElem += '<p>' + i.snippet.title + '</p>' +
+                '<img src=' + ytImg + '>' + '</img>';
         })
     }
     else {
