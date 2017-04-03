@@ -3,17 +3,22 @@
 
 <head>
     <title>Youtube Search Application</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
-    <form>
-        <label>Search Videos</label>
-        <input type="search"></input>
-        <button type="submit">Search</button>
-    </form>
+    <div class="form-container">
+        <form>
+            <label>Search Videos</label>
+            <input class="js-query" type="search"></input>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <h2 class="search-results"></h2>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script src="app.js"></script>
+<script src='sandbox.js'></script>
 
 </html>
