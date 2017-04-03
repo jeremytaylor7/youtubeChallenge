@@ -8,7 +8,8 @@ function getYoutubeData(searchTerm, callback) {
     var params = {
         part: 'snippet',
         key: 'AIzaSyBFXICcSjWGxBOlHQgcPfkOqgEChPGEgDc',
-        q: 'searchTerm'
+        q: searchTerm,
+        maxResults: 10
 
     }
     $.getJSON(YT_BASE_URL, params, callback);
@@ -19,9 +20,9 @@ function getYoutubeData(searchTerm, callback) {
 var dataResultElem = '';
 
 function renderData(data) {
-    if (data.Search) {
-        data.Search.forEach(function (i) {
-            dataResultElem += '<p>' + i.Title + '</p>';
+    if (data.items) {
+        data.items.forEach(function (i) {
+            dataResultElem += '<p>' + i.snippet.title + '</p>';
         })
     }
     else {
